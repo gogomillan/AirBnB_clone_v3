@@ -170,13 +170,14 @@ EOF  all  create  destroy  help  quit  show  update
 No known bugs at this time. 
 
 ## Authors
+**First part of Airbnb:**  
 Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
 Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)
 
-Second part of Airbnb:  
+**Second part of Airbnb:**  
 Joann Vuong
 
-Third part of Airbnb:  
+**Third part of Airbnb:**  
 Gonzalo Gomez Millan - [Github](https://github.com/gogomillan) / [Twitter](https://twitter.com/gogomillan)  
 Juan Marcos Cabezas Garcia - [Github](https://github.com/juanmarcoscabezas) / [Twitter](https://twitter.com/juanmarcab)  
 ## License
