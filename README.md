@@ -159,7 +159,7 @@ Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://tw
 
 Second part of Airbnb: Joann Vuong
 
-Third part of Airbnb:
+Third part of Airbnb:  
 Gonzalo Gomez Millan - [Github](https://github.com/gogomillan) / [Twitter](https://twitter.com/gogomillan)  
 Juan Marcos Cabezas Garcia - [Github](https://github.com/juanmarcoscabezas) / [Twitter](https://twitter.com/juanmarcab)  
 ## License
