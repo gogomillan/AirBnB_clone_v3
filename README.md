@@ -7,7 +7,8 @@ The console is the first segment of the AirBnB project at Holberton School that 
 * Do operations on objects (count, compute stats, etc...)
 * Update attributes of an object
 * Destroy an object
-* Use RESTfull API for the back end
+* Front end generated from the back end
+* RESTful API from the back end
 
 ## Table of Content
 * [Stack](#stack)
@@ -29,7 +30,7 @@ This project is interpreted/tested on:
 - Jinja
 
 ## Context
-![Conext_AirBnb_RESTfull](https://github.com/gogomillan/AirBnB_clone_v3/blob/master/assets/hbnb_step4.png)
+![Conext_AirBnb_RESTful](https://github.com/gogomillan/AirBnB_clone_v3/blob/master/assets/hbnb_step4.png)
 
 ## Installation
 * Clone this repository: `git clone "https://github.com/gogomillan/AirBnB_clone_v3.git"`
