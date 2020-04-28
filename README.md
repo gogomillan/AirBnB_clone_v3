@@ -10,7 +10,8 @@ The console is the first segment of the AirBnB project at Holberton School that 
 * Use RESTfull API for the back end
 
 ## Table of Content
-* [Environment](#environment)
+* [Stack](#stack)
+* [Context](#context)
 * [Installation](#installation)
 * [File Descriptions](#file-descriptions)
 * [Usage](#usage)
