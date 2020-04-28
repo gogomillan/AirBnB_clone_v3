@@ -19,10 +19,13 @@ The console is the first segment of the AirBnB project at Holberton School that 
 * [Authors](#authors)
 * [License](#license)
 
-## Requirements
+## Stack
 This project is interpreted/tested on:
 - Linux, Ubuntu 14.04 LTS
+- MySQL 5.7 (version 5.7.x)
 - Python3 (version 3.4.3)
+- Flask
+- Jinja
 
 ## Installation
 * Clone this repository: `git clone "https://github.com/gogomillan/AirBnB_clone_v3.git"`
