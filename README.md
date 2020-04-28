@@ -137,6 +137,11 @@ TestBaseModel class:
 * `def test_user_class_docstring(self)` - Test for the User class docstring
 
 
+## Usage
+* Access AirBnb directory: `cd AirBnB_clone_v3`
+* Run hbnb(interactively): `./console` and enter command
+* Run hbnb(non-interactively): `echo "<command>" | ./console.py`
+
 ## Examples of use
 ```
 vagrantAirBnB_clone$./console.py
