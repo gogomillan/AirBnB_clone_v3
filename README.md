@@ -28,7 +28,7 @@ This project is interpreted/tested on:
 - Jinja
 
 ## Context
-![Conext_AirBnb_RESTfull](https://github.com/gogomillan/AirBnB_clone_v3/tree/master/asstes/hbnb_step4.png)
+![Conext_AirBnb_RESTfull](https://github.com/gogomillan/AirBnB_clone_v3/blob/master/assets/hbnb_step4.png)
 
 ## Installation
 * Clone this repository: `git clone "https://github.com/gogomillan/AirBnB_clone_v3.git"`
