@@ -3,7 +3,6 @@ The console is the first segment of the AirBnB project at Holberton School that 
 
 #### Functionalities of this command interpreter:
 * Create a new object (ex: a new User or a new Place)
-* Create a new object (ex: a new User or a new Place)
 * Retrieve an object from a file, a database etc...
 * Do operations on objects (count, compute stats, etc...)
 * Update attributes of an object
