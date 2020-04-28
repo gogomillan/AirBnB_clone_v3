@@ -33,7 +33,8 @@ This project is interpreted/tested on:
 
 ## Installation
 * Clone this repository: `git clone "https://github.com/gogomillan/AirBnB_clone_v3.git"`
-* Access AirBnb directory: `cd AirBnB_clone_v3`  
+* Access AirBnb directory: `cd AirBnB_clone_v3`
+  
 Now you can see the files and directories of the project!!
 
 ## File Descriptions
