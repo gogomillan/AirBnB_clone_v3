@@ -27,6 +27,9 @@ This project is interpreted/tested on:
 - Flask
 - Jinja
 
+## Context
+![Conext_AirBnb_RESTfull](https://github.com/gogomillan/AirBnB_clone_v3/tree/master/asstes/hbnb_step4.png)
+
 ## Installation
 * Clone this repository: `git clone "https://github.com/gogomillan/AirBnB_clone_v3.git"`
 * Access AirBnb directory: `cd AirBnB_clone_v3`
