@@ -86,34 +86,21 @@ class TestFileStorage(unittest.TestCase):
     def test_save(self):
         """Test that save properly saves objects to database"""
 
-    @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
-    def test_count_type(self):
-        """Test that count method is returning an Integer value"""
-        self.assertIs(type(models.storage.count()), int)
-
-    @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
-    def test_count_number(self):
-        """Test that count method is returning a value greater than 0 """
-        self.assertTrue(models.storage.count() > 0)
-
-    @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
-    def test_count_number(self):
-        """Test that count method is returning a value greater than 0 for a
-        specific class"""
-        self.assertGreaterEqual(models.storage.count(State), 0)
-
-    @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
+   @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
     def test_get(self):
         """Test that count method is returning a value greater than 0 for a
         specific class"""
-        all_states = list(models.storage.all(State).values())
-        if len(all_states) > 0:
-            first_state_id = list(models.storage.all(State).values())[0].id
-            self.assertTrue(models.storage.get(State, first_state_id))
-        else:
-            state_id = State(name='Colombia')
-            models.storage.new(state_id)
-            models.storage.save()
-            self.assertTrue(bool(models.storage.get(State, state_id.id)))
-            models.storage.delete(state_id)
-            models.storage.save()
+        new_state = State(name='Colombia')
+        models.storage.new(new_state)
+        models.storage.save()
+        self.assertTrue(bool(models.storage.get(State, new_state.id)))
+
+    @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
+    def test_count(self):
+        """count method test"""
+        count = models.storage.count()
+        new_state = State(name='COLOMBIA')
+        models.storage.new(new_state)
+        models.storage.save()
+        new_count = models.storage.count()
+        self.assertNotEqual(count, new_count)
