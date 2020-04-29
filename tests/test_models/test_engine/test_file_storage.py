@@ -133,7 +133,7 @@ class TestFileStorage(unittest.TestCase):
     @unittest.skipIf(models.storage_t == 'db', "not testing db storage")
     def test_get(self):
         """Test that count method is returning a value greater than 0 for a
-        specific class"""
+        specific class or create a new State if neccesary"""
         all_states = list(models.storage.all(State).values())
         if len(all_states) > 0:
             first_state_id = list(models.storage.all(State).values())[0].id
