@@ -145,7 +145,3 @@ class TestFileStorage(unittest.TestCase):
             self.assertTrue(bool(models.storage.get(State, state_id.id)))
             models.storage.delete(state_id)
             models.storage.save()
-
-
-if __name__ == "__main__":
-    unittest.main()
