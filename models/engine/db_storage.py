@@ -50,18 +50,19 @@ class DBStorage:
             Dict of queried classes <class name>.<obj id> = obj.
         """
         instances = {}
+        ALL_CLS = ["State", "City", "User", "Place", "Review", "Amenity"]
         if cls is None:
-            ALL_CLS = ["State", "City", "User", "Place", "Review", "Amenity"]
             for cl in ALL_CLS:
                 objs = self.__session.query(eval(cl))
                 for obj in objs:
                     key = "{}.{}".format(type(obj).__name__, obj.id)
                     instances[key] = obj
         else:
-            objs = self.__session.query(cls).all()
-            for obj in objs:
-                key = "{}.{}".format(type(obj).__name__, obj.id)
-                instances[key] = obj
+            if type(cls).__name__ == type(Base).__name__:
+                objs = self.__session.query(cls).all()
+                for obj in objs:
+                    key = "{}.{}".format(type(obj).__name__, obj.id)
+                    instances[key] = obj
 
         return instances
 
