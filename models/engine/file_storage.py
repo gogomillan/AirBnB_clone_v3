@@ -45,7 +45,7 @@ class FileStorage:
             return new_dict
         return self.__objects
 
-    def get(self, cls=None, id=None):
+    def get(self, cls, id):
         """
         On the curret database session get an object of the given class.
 
