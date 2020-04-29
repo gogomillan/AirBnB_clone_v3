@@ -106,8 +106,15 @@ class TestFileStorage(unittest.TestCase):
     def test_get(self):
         """Test that count method is returning a value greater than 0 for a
         specific class"""
-        first_state_id = list(models.storage.all(State).values())[0].id
-        self.assertTrue(models.storage.get(State, first_state_id))
+        all_states = list(models.storage.all(State).values())
+        if len(all_states) > 0:
+            first_state_id = list(models.storage.all(State).values())[0].id
+            self.assertTrue(models.storage.get(State, first_state_id))
+        """else:
+            state_id = State(name='Colombia')
+            print(state_id)
+            models.storage.save()
+            self.assertTrue(bool(models.storage.get(State, state_id.id)))"""
 
 
 if __name__ == "__main__":
