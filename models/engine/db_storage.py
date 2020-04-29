@@ -43,31 +43,15 @@ class DBStorage:
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """
-        On the curret database session get all objects of the given class.
-
-        Args:
-            cls (str): Name of object type. If None, queries all types of
-                       objects.
-        Return:
-            Dict of queried classes <class name>.<obj id> = obj.
-        """
-        instances = {}
-        ALL_CLS = ["State", "City", "User", "Place", "Review", "Amenity"]
-        if cls is None:
-            for cl in ALL_CLS:
-                objs = self.__session.query(eval(cl))
+        """query on the current database session"""
+        new_dict = {}
+        for clss in classes:
+            if cls is None or cls is classes[clss] or cls is clss:
+                objs = self.__session.query(classes[clss]).all()
                 for obj in objs:
-                    key = "{}.{}".format(type(obj).__name__, obj.id)
-                    instances[key] = obj
-        else:
-            if type(cls).__name__ == type(Base).__name__:
-                objs = self.__session.query(cls).all()
-                for obj in objs:
-                    key = "{}.{}".format(type(obj).__name__, obj.id)
-                    instances[key] = obj
-
-        return instances
+                    key = obj.__class__.__name__ + '.' + obj.id
+                    new_dict[key] = obj
+        return (new_dict)
 
     def get(self, cls, id):
         """
