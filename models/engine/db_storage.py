@@ -1,4 +1,4 @@
-[2;2Rr/bin/python3
+#!/usr/bin/python3
 """
 Script for the database storage class for AirBnB clone
 """

@@ -125,8 +125,8 @@ class FileStorage:
         """
         if cls:
             MY_CLASS = classes[cls.__name__]
-            if MY_CLASS is not None
-                return len(self.all(MY_ClASS))
+            if MY_CLASS is not None:
+                return len(self.all(MY_CLASS))
         else:
             return len(self.all())
         return len(self.all())
