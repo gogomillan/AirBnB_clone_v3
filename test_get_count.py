@@ -9,6 +9,3 @@ print("State objects: {}".format(storage.count(State)))
 
 first_state_id = list(storage.all(State).values())[0].id
 print("First state: {}".format(storage.get(State, first_state_id)))
-#print("Bad state: {}".format(storage.get(State, 'IdError')))
-#print("Sin class state: {}".format(storage.get('IdError')))
-#print("Sin id state: {}".format(storage.get(State)))
