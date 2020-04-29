@@ -55,10 +55,10 @@ class FileStorage:
         Return:
              The object based on the class name and its ID.
         """
-        MY_CLASS = classes[cls.__name__]
-        if MY_CLASS is None:
+        CLASS = classes[cls.__name__]
+        if CLASS is None:
             return None
-        for value in self.all(cls).values():
+        for value in self.all(CLASS).values():
             if value.id == id:
                 return value
         return None
@@ -123,10 +123,10 @@ class FileStorage:
         Args:
             cls (str): The name of the class of None for all.
         """
-        if cls:
-            MY_CLASS = classes[cls.__name__]
-            if MY_CLASS is not None:
-                return len(self.all(MY_CLASS))
-        else:
+        if cls is None:
             return len(self.all())
-        return len(self.all())
+        else:
+            CLASS = classes[cls.__name__]
+            if CLASS is None:
+                return len(self.all())
+        return len(self.all(CLASS))
