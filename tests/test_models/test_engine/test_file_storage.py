@@ -138,7 +138,10 @@ class TestFileStorage(unittest.TestCase):
         if len(all_states) > 0:
             first_state_id = list(models.storage.all(State).values())[0].id
             self.assertTrue(models.storage.get(State, first_state_id))
-        else:                                                                                                                      state_id = State(name='Colombia')                                                                                      models.storage.new(state_id)                                                                                           models.storage.save()
+        else:
+            state_id = State(name='Colombia')
+            models.storage.new(state_id)
+            models.storage.save()
             self.assertTrue(bool(models.storage.get(State, state_id.id)))
             models.storage.delete(state_id)
             models.storage.save()
