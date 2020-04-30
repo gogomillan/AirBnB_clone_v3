@@ -52,9 +52,9 @@ def create_amenity():
         return jsonify({'error': 'Missing name'}), 400
 
 
-@app_views.route('/states/<id>', strict_slashes=False, methods=['PUT'])
+@app_views.route('/amenities/<id>', strict_slashes=False, methods=['PUT'])
 def update_amenity(id):
-    """Updates a state"""
+    """Updates an amenity"""
     amenity = storage.get(State, id)
     if amenity:
         body = request.get_json(silent=True)
