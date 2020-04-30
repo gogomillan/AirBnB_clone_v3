@@ -54,13 +54,14 @@ def create_review(places_id):
 
     if 'user_id' not in body:
         return jsonify({'error': 'Missing user_id'}), 400
-    place = storage.get(User, body.get('used_id'))
+    user = storage.get(User, body.get('used_id'))
     if not bool(place):
         return abort(404)
 
     if 'text' in body:
         new_review = Review(**body)
         new_review.place_id = place.id
+        new_review.user_id = user.id
         storage.new(new_review)
         storage.save()
         return jsonify(review.to_dict()), 201
