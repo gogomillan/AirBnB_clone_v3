@@ -79,7 +79,6 @@ def update_place(id):
             if user_exist is None:
                 return abort(404)
         for key in body:
-            print(place.__class__.name)
             if key != 'id' and key != 'created_at' and key != 'updated_at':
                 setattr(place, key, body[key])
         place.save()

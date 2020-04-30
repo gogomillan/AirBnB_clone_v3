@@ -61,7 +61,6 @@ def update_amenity(id):
         if body is None:
             return jsonify({'error': 'Not a JSON'}), 400
         for key in body:
-            print(amenity.__class__.name)
             if key != 'id' and key != 'created_at' and key != 'updated_at':
                 setattr(amenity, key, body[key])
         amenity.save()
