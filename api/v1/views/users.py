@@ -62,7 +62,6 @@ def update_user(id):
         if body is None:
             return jsonify({'error': 'Not a JSON'}), 400
         for key in body:
-            print(user.__class__.name)
             if key != 'id' and key != 'created_at' and key != 'updated_at':
                 setattr(user, key, body[key])
         user.save()
