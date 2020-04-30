@@ -60,8 +60,7 @@ def create_review(places_id):
 
     if 'text' in body:
         new_review = Review(**body)
-        new_review.place_id = place.id
-        new_review.user_id = user.id
+        setattr(new_review, 'place_id', place.id)
         storage.new(new_review)
         storage.save()
         return jsonify(review.to_dict()), 201
