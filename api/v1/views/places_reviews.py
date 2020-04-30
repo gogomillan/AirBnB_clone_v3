@@ -63,7 +63,7 @@ def create_review(places_id):
         setattr(new_review, 'place_id', place.id)
         storage.new(new_review)
         storage.save()
-        return jsonify(review.to_dict()), 201
+        return jsonify(new_review.to_dict()), 201
     else:
         return jsonify({'error': 'Missing text'}), 400
 
@@ -79,7 +79,7 @@ def update_review(review_id):
         for key in body:
             if key != 'id' and key != 'user_id' and key != 'place_id'\
                     and key != 'created_at' and key != 'updated_at':
-                setattr(review, key, body[key])
+                setattr(review, key, body.get(key))
         review.save()
         return jsonify(review.to_dict()), 200
     return abort(404)
