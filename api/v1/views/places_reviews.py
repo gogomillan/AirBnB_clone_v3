@@ -2,7 +2,7 @@
 """
 Script for the cities API RESTful API
 """
-from api.v1.views import app_views, Place, Review
+from api.v1.views import app_views, Place, Review, User
 from flask import jsonify, abort, request
 from models import storage
 
@@ -55,7 +55,7 @@ def create_review(places_id):
     if 'user_id' not in body:
         return jsonify({'error': 'Missing user_id'}), 400
     user = storage.get(User, body.get('used_id'))
-    if not bool(place):
+    if not bool(user):
         return abort(404)
 
     if 'text' in body:
