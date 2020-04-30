@@ -9,7 +9,7 @@ from models import storage
 
 
 @app_views.route('/amenities', strict_slashes=False, methods=['GET'])
-def all_states():
+def all_amenities():
     """Returns all amenities"""
     amenities = storage.all(Amenity)
     amenities = [amenity.to_dict() for amenity in amenities.values()]
@@ -17,7 +17,7 @@ def all_states():
 
 
 @app_views.route('/amenities/<id>', strict_slashes=False, methods=['GET'])
-def get_state(id):
+def get_amenity(id):
     """Returns amenity by id"""
     amenity = storage.get(Amenity, id)
     if amenity:
@@ -27,7 +27,7 @@ def get_state(id):
 
 
 @app_views.route('/amenities/<id>', strict_slashes=False, methods=['DELETE'])
-def delete_state(id):
+def delete_amenity(id):
     """Removes amenity by id"""
     amenity = storage.get(Amenity, id)
     if amenity:
@@ -38,7 +38,7 @@ def delete_state(id):
 
 
 @app_views.route('/amenities', strict_slashes=False, methods=['POST'])
-def create_state():
+def create_amenity():
     """Creates a new amenity"""
     body = request.get_json(silent=True)
     if body is None:
@@ -53,7 +53,7 @@ def create_state():
 
 
 @app_views.route('/states/<id>', strict_slashes=False, methods=['PUT'])
-def update_state(id):
+def update_amenity(id):
     """Updates a state"""
     amenity = storage.get(State, id)
     if amenity:
