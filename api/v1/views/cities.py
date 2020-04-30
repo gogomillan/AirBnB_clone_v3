@@ -18,9 +18,9 @@ def get_cities_state(state_id):
 
 
 @app_views.route('/cities/<city_id>', strict_slashes=False, methods=['GET'])
-def get_city(id):
+def get_city(city_id):
     """Returns state by id"""
-    city = storage.get(City, id)
+    city = storage.get(City, city_id)
     if city:
         city = city.to_dict()
         return jsonify(city), 200
