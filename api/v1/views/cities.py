@@ -8,9 +8,9 @@ from models import storage
 
 
 @app_views.route('/states/<state_id>/cities', strict_slashes=False, methods=['GET'])
-def get_cities_state(id):
+def get_cities_state(state_id):
     """Returns state by id"""
-    state = storage.get(State, id)
+    state = storage.get(State, state_id)
     if state:
         cities = [city.to_dict() for city in state.cities]
         return jsonify(cities), 200
