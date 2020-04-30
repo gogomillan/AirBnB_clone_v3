@@ -66,4 +66,4 @@ def update_state(id):
                 setattr(state, key, body[key])
         state.save()
         return jsonify(state.to_dict()), 200
-    return abort(400)
+    return abort(404)
