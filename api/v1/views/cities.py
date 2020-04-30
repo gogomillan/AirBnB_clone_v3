@@ -7,7 +7,8 @@ from flask import jsonify, abort, request
 from models import storage
 
 
-@app_views.route('/states/<state_id>/cities', strict_slashes=False, methods=['GET'])
+@app_views.route('/states/<state_id>/cities', strict_slashes=False,
+                 methods=['GET'])
 def get_cities_state(state_id):
     """Returns state by id"""
     state = storage.get(State, state_id)
@@ -38,7 +39,8 @@ def delete_city(city_id):
     return abort(404)
 
 
-@app_views.route('/states/<state_id>/cities', strict_slashes=False, methods=['POST'])
+@app_views.route('/states/<state_id>/cities', strict_slashes=False,
+                 methods=['POST'])
 def create_city(state_id):
     """Creates a new state"""
     state = storage.get(State, state_id)
