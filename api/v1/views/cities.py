@@ -60,9 +60,9 @@ def create_city(state_id):
 
 
 @app_views.route('/cities/<city_id>', strict_slashes=False, methods=['PUT'])
-def update_city(id):
+def update_city(city_id):
     """Updates a state"""
-    city = storage.get(City, id)
+    city = storage.get(City, city_id)
     if city:
         body = request.get_json(silent=True)
         if body is None:
