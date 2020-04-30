@@ -13,7 +13,7 @@ def all_users():
     """Returns all users"""
     users = storage.all(User)
     users = [user.to_dict() for user in users.values()]
-    return jsonify(user), 200
+    return jsonify(users), 200
 
 
 @app_views.route('/users/<id>', strict_slashes=False, methods=['GET'])
@@ -62,7 +62,6 @@ def update_user(id):
         if body is None:
             return jsonify({'error': 'Not a JSON'}), 400
         for key in body:
-            print(user.__class__.name)
             if key != 'id' and key != 'created_at' and key != 'updated_at':
                 setattr(user, key, body[key])
         user.save()

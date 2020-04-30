@@ -44,7 +44,7 @@ def create_amenity():
     if body is None:
         return jsonify({'error': 'Not a JSON'}), 400
     if 'name' in body:
-        new_amenity= Amenity(**body)
+        new_amenity = Amenity(**body)
         storage.new(new_amenity)
         storage.save()
         return jsonify(new_amenity.to_dict()), 201
@@ -61,7 +61,6 @@ def update_amenity(id):
         if body is None:
             return jsonify({'error': 'Not a JSON'}), 400
         for key in body:
-            print(amenity.__class__.name)
             if key != 'id' and key != 'created_at' and key != 'updated_at':
                 setattr(amenity, key, body[key])
         amenity.save()
