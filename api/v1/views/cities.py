@@ -8,9 +8,9 @@ from models import storage
 
 
 @app_views.route('/states/<state_id>/cities', strict_slashes=False, methods=['GET'])
-def get_cities_state(id):
+def get_cities_state(state_id):
     """Returns state by id"""
-    state = storage.get(State, id)
+    state = storage.get(State, state_id)
     if state:
         cities = [city.to_dict() for city in state.cities]
         return jsonify(cities), 200
@@ -18,9 +18,9 @@ def get_cities_state(id):
 
 
 @app_views.route('/cities/<city_id>', strict_slashes=False, methods=['GET'])
-def get_city(id):
+def get_city(city_id):
     """Returns state by id"""
-    city = storage.get(City, id)
+    city = storage.get(City, city_id)
     if city:
         city = city.to_dict()
         return jsonify(city), 200
@@ -28,9 +28,9 @@ def get_city(id):
 
 
 @app_views.route('/cities/<city_id>', strict_slashes=False, methods=['DELETE'])
-def delete_city(id):
+def delete_city(city_id):
     """Removes state by id"""
-    city = storage.get(City, id)
+    city = storage.get(City, city_id)
     if city:
         storage.delete(city)
         storage.save()
@@ -41,7 +41,7 @@ def delete_city(id):
 @app_views.route('/states/<state_id>/cities', strict_slashes=False, methods=['POST'])
 def create_city(state_id):
     """Creates a new state"""
-    state = storage.get(State, id)
+    state = storage.get(State, state_id)
     if not bool(state):
         return abort(404)
 
@@ -60,9 +60,9 @@ def create_city(state_id):
 
 
 @app_views.route('/cities/<city_id>', strict_slashes=False, methods=['PUT'])
-def update_city(id):
+def update_city(city_id):
     """Updates a state"""
-    city = storage.get(City, id)
+    city = storage.get(City, city_id)
     if city:
         body = request.get_json(silent=True)
         if body is None:
