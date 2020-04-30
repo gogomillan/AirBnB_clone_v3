@@ -19,6 +19,7 @@ port = getenv('HBNB_API_PORT') or '0.0.0.0'
 
 cors = CORS(app, resources={"*": {"origins": "0.0.0.0"}})
 
+
 @app.teardown_appcontext
 def teardown(self):
     """Calls close session storage"""
