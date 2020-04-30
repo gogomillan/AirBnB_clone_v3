@@ -54,7 +54,7 @@ def create_review(places_id):
 
     if 'user_id' not in body:
         return jsonify({'error': 'Missing user_id'}), 400
-    user = storage.get(User, body.get('used_id'))
+    user = storage.get(User, body.get('user_id'))
     if not bool(user):
         return abort(404)
 
