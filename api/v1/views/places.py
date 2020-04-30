@@ -3,7 +3,7 @@
 Route Places
 """
 
-from api.v1.views import app_views, Place, User
+from api.v1.views import app_views, Place, City, User
 from flask import jsonify, abort, request
 from models import storage
 
@@ -14,6 +14,16 @@ def all_places():
     places = storage.all(Place)
     places = [place.to_dict() for place in places.values()]
     return jsonify(places), 200
+
+
+@app_views.route('/cities/<id>/places', strict_slashes=False, methods=['GET'])
+def get_city_place(id):
+    """Returns place by id"""
+    city = storage.get(City, id)
+    if city:
+        city = city.to_dict()
+        return jsonify(city), 200
+    return abort(404)
 
 
 @app_views.route('/places/<id>', strict_slashes=False, methods=['GET'])

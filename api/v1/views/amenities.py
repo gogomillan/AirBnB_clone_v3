@@ -44,7 +44,7 @@ def create_amenity():
     if body is None:
         return jsonify({'error': 'Not a JSON'}), 400
     if 'name' in body:
-        new_amenity= Amenity(**body)
+        new_amenity = Amenity(**body)
         storage.new(new_amenity)
         storage.save()
         return jsonify(new_amenity.to_dict()), 201
