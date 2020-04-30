@@ -45,7 +45,7 @@ def create_place():
         return jsonify({'error': 'Not a JSON'}), 400
     if 'user_id' not in body:
         return jsonify({'error': 'Missing user_id'}), 400
-    user_exist = storage.get(User, body['user_id']
+    user_exist = storage.get(User, body['user_id'])
     if user_exist is None:
         return abort(404)
     if 'name' not in body:
@@ -65,7 +65,7 @@ def update_place(id):
         if body is None:
             return jsonify({'error': 'Not a JSON'}), 400
         if 'user_id' in body:
-            user_exist = storage.get(User, body['user_id']
+            user_exist = storage.get(User, body['user_id'])
             if user_exist is None:
                 return abort(404)
         for key in body:

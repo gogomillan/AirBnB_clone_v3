@@ -47,10 +47,10 @@ def create_user():
         return jsonify({'error': 'Missing email'}), 400
     if 'password' not in body:
         return jsonify({'error': 'Missing password'}), 400
-    new_state = State(**body)
-    storage.new(new_state)
+    new_user = User(**body)
+    storage.new(new_user)
     storage.save()
-    return jsonify(new_state.to_dict()), 201
+    return jsonify(new_user.to_dict()), 201
 
 
 @app_views.route('/users/<id>', strict_slashes=False, methods=['PUT'])
