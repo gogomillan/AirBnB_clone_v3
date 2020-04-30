@@ -10,7 +10,7 @@ from models import storage
 @app_views.route('/states/<state_id>/cities', strict_slashes=False,
                  methods=['GET'])
 def get_cities_state(state_id):
-    """Returns state by id"""
+    """Returns cities by state"""
     state = storage.get(State, state_id)
     if state:
         cities = [city.to_dict() for city in state.cities]
@@ -20,7 +20,7 @@ def get_cities_state(state_id):
 
 @app_views.route('/cities/<city_id>', strict_slashes=False, methods=['GET'])
 def get_city(city_id):
-    """Returns state by id"""
+    """Returns cities by id"""
     city = storage.get(City, city_id)
     if city:
         city = city.to_dict()
@@ -30,7 +30,7 @@ def get_city(city_id):
 
 @app_views.route('/cities/<city_id>', strict_slashes=False, methods=['DELETE'])
 def delete_city(city_id):
-    """Removes state by id"""
+    """Removes city by id"""
     city = storage.get(City, city_id)
     if city:
         storage.delete(city)
@@ -42,7 +42,7 @@ def delete_city(city_id):
 @app_views.route('/states/<state_id>/cities', strict_slashes=False,
                  methods=['POST'])
 def create_city(state_id):
-    """Creates a new state"""
+    """Creates a new city"""
     state = storage.get(State, state_id)
     if not bool(state):
         return abort(404)
@@ -63,7 +63,7 @@ def create_city(state_id):
 
 @app_views.route('/cities/<city_id>', strict_slashes=False, methods=['PUT'])
 def update_city(city_id):
-    """Updates a state"""
+    """Updates a city"""
     city = storage.get(City, city_id)
     if city:
         body = request.get_json(silent=True)
