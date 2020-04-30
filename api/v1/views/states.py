@@ -47,6 +47,23 @@ def create_state():
         new_state = State(**body)
         storage.new(new_state)
         storage.save()
-        return jsonify(new_state.to_dict()), 200
+        return jsonify(new_state.to_dict()), 201
     else:
         return jsonify({'error': 'Missing name'}), 400
+
+
+@app_views.route('/states/<id>', strict_slashes=False, methods=['PUT'])
+def update_state(id):
+    """Updates a state"""
+    state = storage.get(State, id)
+    if state:
+        body = request.get_json(silent=True)
+        if body is None:
+            return jsonify({'error': 'Not a JSON'}), 400
+        for key in body:
+            print(state.__class__.name)
+            if key != 'id' and key != 'created_at' and key != 'updated_at':
+                setattr(state, key, body[key])
+        state.save()
+        return jsonify(state.to_dict()), 200
+    return abort(400)
