@@ -163,11 +163,35 @@ Views from the app
 * [users.py](/api/v1/views/users.py)
 
 ## Usage
+**For the console**
 * Access AirBnb directory: `cd AirBnB_clone_v3`
 * Run hbnb(interactively): `./console` and enter command
 * Run hbnb(non-interactively): `echo "<command>" | ./console.py`
 
+**For the API (lunching)**
+* Access AirBnb directory: `cd AirBnB_clone_v3`
+```bash wrap
+guillaume@ubuntu:~/AirBnB_v3$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db HBNB_API_HOST=0.0.0.0 HBNB_API_PORT=5000 python3 -m api.v1.app
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+...
+```
+
+**For the API (verify)**
+* Access AirBnb directory: `cd AirBnB_clone_v3`
+```bash wrap
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/status
+{
+  "status": "OK"
+}
+guillaume@ubuntu:~/AirBnB_v3$ 
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET -s http://0.0.0.0:5000/api/v1/status -vvv 2>&1 | grep Content-Type
+< Content-Type: application/json
+guillaume@ubuntu:~/AirBnB_v3$ 
+```
+
 ## Examples of use
+
+**Example for the console**
 ```
 vagrantAirBnB_clone$./console.py
 (hbnb) help
@@ -188,6 +212,19 @@ EOF  all  create  destroy  help  quit  show  update
 (hbnb) show BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
 ** no instance found **
 (hbnb) quit
+```
+
+**Example for the API**
+```bash wrap
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/states/8f165686-c98d-46d9-87d9-d6059ade2d99
+ {
+  "__class__": "State", 
+  "created_at": "2017-04-14T00:00:02", 
+  "id": "8f165686-c98d-46d9-87d9-d6059ade2d99", 
+  "name": "Louisiana", 
+  "updated_at": "2017-04-14T00:00:02"
+}
+guillaume@ubuntu:~/AirBnB_v3$
 ```
 
 ## Bugs
