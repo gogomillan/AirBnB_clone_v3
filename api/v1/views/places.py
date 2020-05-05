@@ -25,7 +25,7 @@ def get_city_place(id):
               "__class__":"Place",
               "city_id":"1da255c0-f023-4779-8134-2b1b40f87683",
               "created_at":"2017-03-25T02:17:06.000000",
-              "description":"The guest house is located uptown two blocks from Tulane U. The house is located in a very safe and convenient location. The house has a private entrance and patio space. The house also has access to a large backyard with a charcoal grill which is shared. This is a simple, clean and affordable place to stay while visiting New Orleans. We provide everything travelers need. Please contact me if you have any questions.<BR />Thanks,<BR />Ryan<BR /><BR />Note: We have a $50 pet fee",
+              "description":"The guest house is located uptown two blocks ...",
               "id":"279b355e-ff9a-4b85-8114-6db7ad2a4cd2",
               "latitude":29.9493,
               "longitude":-90.1171,
@@ -41,7 +41,7 @@ def get_city_place(id):
               "__class__":"Place",
               "city_id":"1da255c0-f023-4779-8134-2b1b40f87683",
               "created_at":"2017-03-25T02:17:06.000000",
-              "description":"Semi-private room in a cute and cozy shotgun house in the Marigny. 15 minute walk to the French Quarter, 12 minutes to Frenchmen St., 2 minutes to the Bywater. Located around the corner from a few restaurants, bars, a coffee shop, and grocery store.<BR /><BR />The house is a classic shotgun, a very common style of architecture for homes here in New Orleans. We rent three rooms in our house (see our profile for links to the other rooms). Each room is arranged one behind the other. You will be walking through all of our bedrooms to get to your room, and while you'll have your room to yourself, people will need to walk through it to access the kitchen, other bedrooms, backyard, and bathroom. Please look through our photos to see the \"blueprints\" of our house, this will give you an idea to how it's laid out.<BR /><BR />Your room is the third room in the house. It comes furnished with a built in bed, curtain for privacy, XL twin mattress, reading lamp, a chair, vanity with a large mirror,",
+              "description":"Semi-private room in a cute and cozy shotgun ...",
               "id":"ffcc9c22-759e-4418-b788-81eda89c2865",
               "latitude":29.9666,
               "longitude":-90.0519,
@@ -76,7 +76,7 @@ def get_place(id):
         in: path
         type: string
         required: true
-        description: The ID of State, try 279b355e-ff9a-4b85-8114-6db7ad2a4cd2
+        description: The ID of Place, try 279b355e-ff9a-4b85-8114-6db7ad2a4cd2
     responses:
       200:
         description: A Place object
@@ -85,7 +85,7 @@ def get_place(id):
             "__class__":"Place",
             "city_id":"1da255c0-f023-4779-8134-2b1b40f87683",
             "created_at":"2017-03-25T02:17:06.000000",
-            "description":"The guest house is located uptown two blocks from Tulane U. The house is located in a very safe and convenient location. The house has a private entrance and patio space. The house also has access to a large backyard with a charcoal grill which is shared. This is a simple, clean and affordable place to stay while visiting New Orleans. We provide everything travelers need. Please contact me if you have any questions.<BR />Thanks,<BR />Ryan<BR /><BR />Note: We have a $50 pet fee",
+            "description":"The guest house is located uptown two blocks ...",
             "id":"279b355e-ff9a-4b85-8114-6db7ad2a4cd2",
             "latitude":29.9493,
             "longitude":-90.1171,
