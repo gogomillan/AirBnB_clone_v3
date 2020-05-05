@@ -8,11 +8,14 @@ from flask import jsonify, abort, request
 from models import storage
 
 
+
 @app_views.route('/states', strict_slashes=False, methods=['GET'])
 def all_states():
     """ Method for the "/states" path GET
     Returns all states
     ---
+    tags:
+      -   State
     responses:
       200:
         description: A list of all State objects
@@ -44,6 +47,8 @@ def get_state(id):
     """ Method for the "/states/<id>" path GET
     Returns state by id
     ---
+    tags:
+      -   State
     parameters:
       - name: id
         in: path
@@ -77,6 +82,8 @@ def delete_state(id):
     """ Method for the "/states/<id>" path DELETE
     Removes state by id
     ---
+    tags:
+      -   State
     parameters:
       - name: id
         in: path
@@ -104,6 +111,8 @@ def create_state():
     """ Method for the "/states" path POST
     Creates a new state
     ---
+    tags:
+      -   State
     parameters:
       - in: body
         name: body
@@ -154,6 +163,8 @@ def update_state(id):
     """ Method for the "/states/<id>" path PUT
     Updates a state
     ---
+    tags:
+      -   State
     parameters:
       - in: body
         name: body

@@ -13,6 +13,8 @@ def colors(palette):
     """Example endpoint returning a list of colors by palette
     This is using docstrings for specifications.
     ---
+    tags:
+      - colors
     parameters:
       - name: palette
         in: path
