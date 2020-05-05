@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Route
+Script for the REST API of State class model 
 """
 
 from api.v1.views import app_views, State
@@ -10,7 +10,30 @@ from models import storage
 
 @app_views.route('/states', strict_slashes=False, methods=['GET'])
 def all_states():
-    """Returns all states"""
+    """ Method for the "/states" path GET
+    Returns all states
+    ---
+    responses:
+      200:
+        description: A list of all State objects
+        examples:
+          [
+            {
+              "__class__": "State", 
+              "created_at": "2017-04-14T00:00:02", 
+              "id": "8f165686-c98d-46d9-87d9-d6059ade2d99", 
+              "name": "Louisiana", 
+              "updated_at": "2017-04-14T00:00:02"
+            }, 
+            {
+              "__class__": "State", 
+              "created_at": "2017-04-14T16:21:42", 
+              "id": "1a9c29c7-e39c-4840-b5f9-74310b34f269", 
+              "name": "Arizona", 
+              "updated_at": "2017-04-14T16:21:42"
+            }
+          ]
+    """
     states = storage.all(State)
     states = [state.to_dict() for state in states.values()]
     return jsonify(states), 200
@@ -18,7 +41,29 @@ def all_states():
 
 @app_views.route('/states/<id>', strict_slashes=False, methods=['GET'])
 def get_state(id):
-    """Returns state by id"""
+    """ Method for the "/states/<id>" path GET
+    Returns state by id
+    ---
+    parameters:
+      - name: id
+        in: path
+        type: string
+        required: true
+    responses:
+      200:
+        description: A State object
+        examples:
+          {
+            "__class__": "State", 
+            "created_at": "2017-04-14T00:00:02", 
+            "id": "8f165686-c98d-46d9-87d9-d6059ade2d99", 
+            "name": "Louisiana", 
+            "updated_at": "2017-04-14T00:00:02"
+          }
+      404:
+        description: Object not found
+    """
+    states = storage.all(State)
     state = storage.get(State, id)
     if state:
         state = state.to_dict()
@@ -28,7 +73,22 @@ def get_state(id):
 
 @app_views.route('/states/<id>', strict_slashes=False, methods=['DELETE'])
 def delete_state(id):
-    """Removes state by id"""
+    """ Method for the "/states/<id>" path DELETE
+    Removes state by id
+    ---
+    parameters:
+      - name: id
+        in: path
+        type: string
+        required: true
+    responses:
+      200:
+        description: Object deleted
+        examples:
+            {}
+      404:
+        description: Object not found
+    """
     state = storage.get(State, id)
     if state:
         storage.delete(state)
@@ -39,7 +99,41 @@ def delete_state(id):
 
 @app_views.route('/states', strict_slashes=False, methods=['POST'])
 def create_state():
-    """Creates a new state"""
+    """ Method for the "/states" path POST
+    Creates a new state
+    ---
+    requestBody:
+      description: State
+      required: true
+      content:
+        application/json:
+          schema:
+            properties:
+              name:
+                type: string
+                description: Name for the state
+    responses:
+      201:
+        description: A State object was created
+        examples:
+          {
+            "__class__": "State", 
+            "created_at": "2017-04-15T01:30:27.557877", 
+            "id": "feadaa73-9e4b-4514-905b-8253f36b46f6", 
+            "name": "California", 
+            "updated_at": "2017-04-15T01:30:27.558081"
+          }
+      400:
+        description: When error in JSON or in data
+        examples:
+          {
+            "error": "Not a JSON"
+          }
+        examples:
+          {
+            "error": "Missing name"
+          }
+    """
     body = request.get_json(silent=True)
     if body is None:
         return jsonify({'error': 'Not a JSON'}), 400
@@ -54,7 +148,44 @@ def create_state():
 
 @app_views.route('/states/<id>', strict_slashes=False, methods=['PUT'])
 def update_state(id):
-    """Updates a state"""
+    """ Method for the "/states/<id>" path PUT
+    Updates a state
+    ---
+    parameters:
+      - name: id
+        in: path
+        type: string
+        required: true
+    requestBody:
+      description: State
+      required: true
+      content:
+        application/json:
+          schema:
+            properties:
+              name:
+                type: string
+                description: Name for the state
+    responses:
+      200:
+        description: A State object was modified
+        examples:
+          {
+            "__class__": "State",
+            "created_at": "2017-04-15T01:30:27.557877",
+            "id": "feadaa73-9e4b-4514-905b-8253f36b46f6",
+            "name": "California",
+            "updated_at": "2017-04-15T01:30:27.558081"
+          }
+      400:
+        description: When error in JSON
+        examples:
+          {
+            "error": "Not a JSON"
+          }
+      404:
+        description: When id not found
+    """
     state = storage.get(State, id)
     if state:
         body = request.get_json(silent=True)
