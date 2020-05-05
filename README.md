@@ -38,8 +38,8 @@ This project is interpreted/tested on:
   
 Now you can see the files and directories of the project!!
 
-## File Descriptions
-[console.py](console.py) - the console contains the entry point of the command interpreter. 
+## Content Descriptions
+[console.py](console.py) - the console (class HBNBCommand), contains the entry point of the command interpreter. 
 List of commands this console current supports:
 * `EOF` - exits console 
 * `quit` - exits console
@@ -50,7 +50,7 @@ List of commands this console current supports:
 * `all` - Prints all string representation of all instances based or not on the class name. 
 * `update` - Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file). 
 
-#### `models/` directory contains classes used for this project:
+#### `models/` directory contains classes used for the model of this project:
 [base_model.py](/models/base_model.py) - The BaseModel class from which future classes will be derived
 * `def __init__(self, *args, **kwargs)` - Initialization of the base model
 * `def __str__(self)` - String representation of the BaseModel class
@@ -58,19 +58,29 @@ List of commands this console current supports:
 * `def to_dict(self)` - returns a dictionary containing all keys/values of the instance
 
 Classes inherited from Base Model:
-* [amenity.py](/models/amenity.py)
-* [city.py](/models/city.py)
-* [place.py](/models/place.py)
-* [review.py](/models/review.py)
-* [state.py](/models/state.py)
-* [user.py](/models/user.py)
+* [amenity.py](/models/amenity.py) - Amenity
+* [city.py](/models/city.py) - City
+* [place.py](/models/place.py) - Places
+* [review.py](/models/review.py) - Review
+* [state.py](/models/state.py) - State
+* [user.py](/models/user.py) - User
 
-#### `/models/engine` directory contains File Storage class that handles JASON serialization and deserialization :
+#### `/models/engine` directory contains File Storage class that handles JSON serialization and deserialization and database access:
 [file_storage.py](/models/engine/file_storage.py) - serializes instances to a JSON file & deserializes back to instances
 * `def all(self)` - returns the dictionary __objects
 * `def new(self, obj)` - sets in __objects the obj with key <obj class name>.id
 * `def save(self)` - serializes __objects to the JSON file (path: __file_path)
-* ` def reload(self)` -  deserializes the JSON file to __objects
+* `def reload(self)` - deserializes the JSON file to __objects
+* `def get(self, cls, id)` - returns the object based on the class name and its ID, or None if not found.
+* `def count(self, cls=None)` - returns the number of objects in storage matching the given class name. If no name is passed, returns the count of all objects in storage.
+
+[db_storage.py](/models/engine/db_storage.py) - stores info into database
+* `def all(self)` - returns the dictionary __objects
+* `def new(self, obj)` - sets in __objects the obj with key <obj class name>.id
+* `def save(self)` - stores __objects to the database (MySQL)
+* `def reload(self)` - retrieve from the database to __objects
+* `def get(self, cls, id)` - returns the object based on the class name and its ID, or None if not found.
+* `def count(self, cls=None)` - returns the number of objects in storage matching the given class name. If no name is passed, returns the count of all objects in storage.
 
 #### `/tests` directory contains all unit test cases for this project:
 [/test_models/test_base_model.py](/tests/test_models/test_base_model.py) - Contains the TestBaseModel and TestBaseModelDocs classes
@@ -137,6 +147,20 @@ TestBaseModel class:
 * `def test_user_module_docstring(self)` - Test for the user.py module docstring
 * `def test_user_class_docstring(self)` - Test for the User class docstring
 
+#### `web_flask/` directory contains classes used for front-end from the back-end of this project:
+
+#### `api/v1/` directory contains classes used for the REST API v1 of this project:
+* [app.py](/api/v1/app.py) - Flask API v1 code base for the `app` and blueprint `app_views`
+
+#### `api/v1/views` directory contains the views for the REST API v1 of this project:
+Views from the app
+* [amenities.py](/api/v1/views/amenities.py)
+* [cities.py](/api/v1/views/cities.py)
+* [index.py](/api/v1/views/index.py)
+* [places.py](/api/v1/views/places.py)
+* [places_reviews.py](/api/v1/views/places_reviews.py)
+* [states.py](/api/v1/views/states.py)
+* [users.py](/api/v1/views/users.py)
 
 ## Usage
 * Access AirBnb directory: `cd AirBnB_clone_v3`
