@@ -56,7 +56,7 @@ def get_amenity(id):
         description: The ID of State, try 4a0a3fa7-21a0-411a-bb0a-9b4eed1901ef
     responses:
       200:
-        description: A State object
+        description: An Amenity object
         examples:
           {
             "__class__":"Amenity",
@@ -64,7 +64,7 @@ def get_amenity(id):
             "id":"4a0a3fa7-21a0-411a-bb0a-9b4eed1901ef",
             "name":"Pets allowed",
             "updated_at":"2017-03-25T02:17:06.000000"
-          },
+          }
       404:
         description: Object not found
     """
