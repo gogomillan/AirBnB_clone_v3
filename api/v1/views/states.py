@@ -49,6 +49,7 @@ def get_state(id):
         in: path
         type: string
         required: true
+        description: The ID of State, try 5976f0e7-5c5f-4949-aae0-90d68fd239c0
     responses:
       200:
         description: A State object
@@ -81,6 +82,7 @@ def delete_state(id):
         in: path
         type: string
         required: true
+        description: The ID of State, create one and try its ID
     responses:
       200:
         description: Object deleted
@@ -102,16 +104,17 @@ def create_state():
     """ Method for the "/states" path POST
     Creates a new state
     ---
-    requestBody:
-      description: State
-      required: true
-      content:
-        application/json:
-          schema:
-            properties:
-              name:
-                type: string
-                description: Name for the state
+    parameters:
+      - in: body
+        name: body
+        required: true
+        content:
+          application/json:
+        schema:
+          properties:
+            name:
+              type: string
+              description: Name for the state
     responses:
       201:
         description: A State object was created
@@ -152,20 +155,21 @@ def update_state(id):
     Updates a state
     ---
     parameters:
-      - name: id
-        in: path
+      - in: body
+        name: body
+        required: true
+        content:
+          application/json:
+        schema:
+          properties:
+            name:
+              type: string
+              description: Name for the state
+      - in: path
+        name: id
         type: string
         required: true
-    requestBody:
-      description: State
-      required: true
-      content:
-        application/json:
-          schema:
-            properties:
-              name:
-                type: string
-                description: Name for the state
+        description: The ID of State, try 5976f0e7-5c5f-4949-aae0-90d68fd239c0
     responses:
       200:
         description: A State object was modified
