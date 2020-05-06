@@ -72,8 +72,7 @@ def get_review(review_id):
       200:
         description: A State object
         examples:
-          3f54d114-582d-4dab-8559-f0682dbf1fa6:
-          {
+          3f54d114-582d-4dab-8559-f0682dbf1fa6: {
             "__class__":"Review",
             "created_at":"2017-03-25T02:17:07.000000",
             "id":"3f54d114-582d-4dab-8559-f0682dbf1fa6",
